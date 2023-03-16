@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 class ConnectBusiness extends StatefulWidget {
   const ConnectBusiness({super.key});
-
+  static const routeName = 'connect-business';
   @override
   State<ConnectBusiness> createState() => _ConnectBusinessState();
 }

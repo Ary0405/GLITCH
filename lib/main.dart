@@ -6,6 +6,7 @@ import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
+import 'package:glitch/screens/remake_detail_screen.dart';
 import 'package:glitch/screens/testing_labs.dart';
 import 'package:glitch/screens/remake_screen.dart';
 
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
         GraphScreen.routeName: (context) => const GraphScreen(),
         PriceAnalysisScreen.routeName: (context) => const PriceAnalysisScreen(),
         RemakeScreen.routename: (context) => const RemakeScreen(),
+        RemakeDetailScreen.routeName: (context) => const RemakeDetailScreen(),
+        ConnectBusiness.routeName: (context) => const ConnectBusiness(),
       },
     );
   }
@@ -64,6 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const ColdStorage();
+    return const HomeScreen();
   }
 }

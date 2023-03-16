@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "image":
           'assets/images/Businesswoman is satisfied with business statistics.png',
       "color": 0xff9B5366,
-      "route": "price-analysis-screen",
+      "route": "connect-business",
     },
     {
       "text": 'Remake',

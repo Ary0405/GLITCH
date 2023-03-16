@@ -53,48 +53,53 @@ class _RemakeScreenState extends State<RemakeScreen> {
                 mainAxisSpacing: 10,
               ),
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.width * .02,
-                    left: MediaQuery.of(context).size.width * .05,
-                    right: MediaQuery.of(context).size.width * .05,
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
+                return InkWell(
+                  onTap:() {
+                    Navigator.of(context).pushNamed('remake-detail-screen');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.width * .02,
+                      left: MediaQuery.of(context).size.width * .05,
+                      right: MediaQuery.of(context).size.width * .05,
                     ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * .05,
-                            right: MediaQuery.of(context).size.width * .02,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * .05,
+                              right: MediaQuery.of(context).size.width * .02,
+                            ),
+                            child: Image.asset(
+                              data[index]['image'],
+                              height: MediaQuery.of(context).size.height * .08,
+                              width: MediaQuery.of(context).size.width * .2,
+                            ),
                           ),
-                          child: Image.asset(
-                            data[index]['image'],
-                            height: MediaQuery.of(context).size.height * .08,
-                            width: MediaQuery.of(context).size.width * .2,
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * .57,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                data[index]['text'],
-                                style: TextStyle(
-                                  fontSize:
-                                      MediaQuery.of(context).size.width * .05,
-                                  fontWeight: FontWeight.w700,
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * .57,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  data[index]['text'],
+                                  style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width * .05,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );
