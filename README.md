@@ -22,8 +22,8 @@ of crops they sell.
 At present, the app has the ability to analyze and display two types of graphs.
 The first graph shows changes in crop rates over time period (1 week, 1 month, 6 month etc) in a specific location that the farmer has selected.
 The second graph displays the trend in the average prices of the produce in various locations within a specified radius over a specified time period (chosen by farmer).
-This information can help farmers make strategic decisions about  their crops, including when and where to sell, which crops to grow, and how much to produce. Thereby
-focusing in the economic welfare and developement of the farmer. 
+This information can help farmers make strategic decisions about their crops, including when and where to sell, which crops to grow, and how much to produce. 
+Thereby focusing in the economic welfare and developement of the farmer. 
 
 ## Cold Storage:
 
@@ -58,3 +58,19 @@ The app provides daily news relevant to farmers in their area, including informa
 and other benefits. Additionally, the app provides educational resources to help farmers improve 
 their knowledge and skills related to farming.
 
+
+## Local Deployment:
+
+**Step-1:**
+Clone this repo using
+```
+git clone https://github.com/Ary0405/GLITCH.git
+```
+
+**Step-2**
+From the root directory of the project run
+```
+flutter run
+```
+**Note: If flutter is not configured in your system, you can find how to do it here**
+https://docs.flutter.dev/get-started/install
