@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
+import 'package:glitch/screens/form_screen.dart';
+import 'package:glitch/screens/price_analysis_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Inter',
+        scaffoldBackgroundColor: const Color(0xFFF2F9F2),
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(primary: const Color(0xff22963C))
             .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
