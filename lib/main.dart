@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
+import 'package:glitch/screens/price_analysis_screen.dart';
 
 void main() {
   runApp(const MyApp());
