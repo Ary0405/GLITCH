@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glitch/screens/entry_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-        theme: ThemeData(
-          fontFamily: 'Inter',
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(primary: const Color(0xff22963C))
-              .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
-        ),
-        home: const MyHomePage(),
+      theme: ThemeData(
+        fontFamily: 'Inter',
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(primary: const Color(0xff22963C))
+            .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -40,7 +41,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -49,18 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
-      // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    return const EntryScreen();
   }
 }
