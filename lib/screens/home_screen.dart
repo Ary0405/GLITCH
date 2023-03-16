@@ -15,38 +15,38 @@ class _HomeScreenState extends State<HomeScreen> {
       "text": 'Price Analysis',
       "image": 'assets/images/graph.png',
       "color": 0xffF6795B,
-      "route": "/my_warehouse",
+      "route": "price-analysis-screen",
     },
     {
       "text": 'Testing Labs',
       "image": 'assets/images/three test tubes.png',
       "color": 0xffC7D458,
-      "route": "/my-orders",
+      "route": "price-analysis-screen",
     },
     {
       "text": 'Cold Storages',
       "image": 'assets/images/warehouse.png',
       "color": 0xffECA340,
-      "route": "/my_warehouse",
+      "route": "price-analysis-screen",
     },
     {
       "text": 'Network',
       "image":
           'assets/images/Businesswoman is satisfied with business statistics.png',
       "color": 0xff9B5366,
-      "route": "/pending-requests",
+      "route": "price-analysis-screen",
     },
     {
       "text": 'Remake',
       "image": 'assets/images/recycling.png',
       "color": 0xff99D47B,
-      "route": "/my_warehouse",
+      "route": "remake-screen",
     },
     {
       "text": 'Info',
       "image": 'assets/images/info.png',
       "color": 0xff7582F4,
-      "route": "/my_warehouse",
+      "route": "price-analysis-screen",
     },
   ];
 
@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
-
           // The header of the screen
           Padding(
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.07),
@@ -96,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisCount: 2,
                   childAspectRatio: MediaQuery.of(context).size.width /
                       (MediaQuery.of(context).size.height / 1.3),
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 30,
+                  mainAxisSpacing: 30,
                 ),
                 itemBuilder: (context, i) {
                   return ScreenButtons(

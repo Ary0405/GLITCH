@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class PriceAnalysisScreen extends StatefulWidget {
-  const PriceAnalysisScreen({super.key});
-  static const routeName = 'price-analysis-screen';
+class RemakeScreen extends StatefulWidget {
+  const RemakeScreen({super.key});
+  static const routename = 'remake-screen';
   @override
-  State<PriceAnalysisScreen> createState() => _PriceAnalysisScreenState();
+  State<RemakeScreen> createState() => _RemakeScreenState();
 }
 
-class _PriceAnalysisScreenState extends State<PriceAnalysisScreen> {
+class _RemakeScreenState extends State<RemakeScreen> {
+  @override
   List<Map<dynamic, dynamic>> data = [
     {
       'text': 'Tomatoes',
@@ -32,7 +33,7 @@ class _PriceAnalysisScreenState extends State<PriceAnalysisScreen> {
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              'Select the product you want to analyse',
+              'Select the product you wish to remake',
               style: TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.w500,
@@ -88,18 +89,6 @@ class _PriceAnalysisScreenState extends State<PriceAnalysisScreen> {
                                   fontSize:
                                       MediaQuery.of(context).size.width * .05,
                                   fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.of(context).pushNamed(
-                                    'graphs_screen',
-                                  );
-                                },
-                                child: Image.asset(
-                                  'assets/images/chart.png',
-                                  height:
-                                      MediaQuery.of(context).size.height * .04,
                                 ),
                               ),
                             ],

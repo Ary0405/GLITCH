@@ -1,5 +1,3 @@
-import 'dart:ffi';
-import 'dart:math' as Math;
 import 'package:flutter/material.dart';
 
 class ScreenButtons extends StatelessWidget {
@@ -57,14 +55,10 @@ class ScreenButtons extends StatelessWidget {
               Container(
                 alignment: Alignment.bottomRight,
                 height: MediaQuery.of(context).size.height * .23,
-                child: Positioned(
-                  top: 10,
-                  bottom: 0,
-                  child: ClipRRect(
-                    child: Image.asset(
-                      image,
-                      fit: BoxFit.cover,
-                    ),
+                child: ClipRRect(
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
