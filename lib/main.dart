@@ -5,6 +5,7 @@ import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
+import 'package:glitch/screens/remake_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Inter',
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(),
       routes: {
         GraphScreen.routeName: (context) => const GraphScreen(),
+        PriceAnalysisScreen.routeName: (context) => const PriceAnalysisScreen(),
+        RemakeScreen.routename: (context) => const RemakeScreen(),
       },
     );
   }
