@@ -73,9 +73,16 @@ class _PriceAnalysisScreenState extends State<PriceAnalysisScreen> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Image.asset(
-                          'assets/images/chart.png',
-                          height: MediaQuery.of(context).size.height * .04,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              'graphs_screen',
+                            );
+                          },
+                          child: Image.asset(
+                            'assets/images/chart.png',
+                            height: MediaQuery.of(context).size.height * .04,
+                          ),
                         ),
                       ],
                     ),
