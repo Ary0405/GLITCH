@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
+import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
 
 void main() {
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
             .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
       ),
       home: const MyHomePage(),
+      routes: {
+        GraphScreen.routeName: (context) => const GraphScreen(),
+      },
     );
   }
 }
