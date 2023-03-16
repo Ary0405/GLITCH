@@ -119,6 +119,7 @@ class _FormScreenState extends State<FormScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                 ),
+                
                 options: crops,
                 selectedValues: selectedCrops,
                 onChanged: (value) {
