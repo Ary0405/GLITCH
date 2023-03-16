@@ -35,5 +35,26 @@ access markets that are far away from their farms.
 Through our app, farmers can quickly find nearby cold storage facilities and get in touch with their managers to learn more and make use 
 of them for their benefit.
 
+## Soil Testing and Seed Testing Labs:
+This feature of app helps the farmer to identify and locate nearby
+testing labs/facilities to test their soil and seeds.
+This is an essential phase for a farmer because quality of seeds say about
+the amount of yield they get. Soil testing helps in measuring the nutrient
+levels, thus helping the farmer to not contaminate the soil
+with excessive fertilizers
 
+## Business Connections:
+The app includes a feature where farmers can search for businesses to sell their crop to and 
+connect with other farmers. This feature provides farmers with a platform to network with potential 
+buyers and sellers, thereby increasing their business opportunities.
+
+## Crop Processing Options:
+Another special feature of the app is that it gives farmers other choices to sell their produce. 
+The app provides ideas on how to convert their crop into processed food and sell them. This feature 
+enables farmers to explore alternative avenues for selling their produce and increase their profits.
+
+## Education:
+The app provides daily news relevant to farmers in their area, including information about subsidies 
+and other benefits. Additionally, the app provides educational resources to help farmers improve 
+their knowledge and skills related to farming.
 
