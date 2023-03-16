@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:multiselect/multiselect.dart';
 
 class TestingScreen extends StatefulWidget {
   const TestingScreen({super.key});
@@ -11,16 +8,12 @@ class TestingScreen extends StatefulWidget {
 }
 
 class _TestingScreenState extends State<TestingScreen> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _areaController = TextEditingController();
-  final TextEditingController _contactController = TextEditingController();
   List<String> states = [
     'Punjab',
     'Odisha',
     'Andhra Pradesh',
     'Bihar',
     'Maharashtra',
-    'Punjab',
     'Telangana',
     'Tamil Nadu',
     'Uttarakhand',
@@ -38,8 +31,12 @@ class _TestingScreenState extends State<TestingScreen> {
     'Dehradun',
     'Dibrugarh'
   ];
-  List<String> selectedStates = [];
-List<String> selectedDistricts = [];
+  String state = "";
+  String district = "";
+  bool isSwitched = false;
+  String selectedStates = 'Punjab';
+  String selectedDistricts = 'Amritsar';
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -58,113 +55,192 @@ List<String> selectedDistricts = [];
         backgroundColor: const Color(0xffF2F9F2),
         elevation: 0,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(width * 0.06),
-        // child: SingleChildScrollView(
-        //   child: Column(
-        //     children: [
-        //       TextField(
-        //         controller: _nameController,
-        //         decoration: const InputDecoration(
-        //           labelText: 'Name',
-        //           contentPadding: EdgeInsets.all(8),
-        //           filled: true,
-        //           fillColor: Colors.white,
-        //           enabledBorder: OutlineInputBorder(
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //             borderSide: BorderSide.none,
-        //           ),
-        //           focusedBorder: OutlineInputBorder(
-        //             borderSide: BorderSide(color: Colors.green),
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //           ),
-        //         ),
-        //       ),
-        //       SizedBox(
-        //         height: height * .025,
-        //       ),
-        //       TextField(
-        //         controller: _areaController,
-        //         decoration: const InputDecoration(
-        //             labelText: 'Area',
-        //             contentPadding: EdgeInsets.all(8),
-        //             filled: true,
-        //             fillColor: Colors.white,
-        //             enabledBorder: OutlineInputBorder(
-        //               borderRadius: BorderRadius.all(Radius.circular(10)),
-        //               borderSide: BorderSide.none,
-        //             ),
-        //             focusedBorder: OutlineInputBorder(
-        //               borderSide: BorderSide(color: Colors.green),
-        //               borderRadius: BorderRadius.all(Radius.circular(10)),
-        //             )),
-        //       ),
-        //       SizedBox(
-        //         height: height * .025,
-        //       ),
-        //       TextField(
-        //         controller: _contactController,
-        //         decoration: const InputDecoration(
-        //           labelText: 'Contact',
-        //           contentPadding: const EdgeInsets.all(8),
-        //           filled: true,
-        //           fillColor: Colors.white,
-        //           enabledBorder: OutlineInputBorder(
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //             borderSide: BorderSide.none,
-        //           ),
-        //           focusedBorder: OutlineInputBorder(
-        //             borderSide: BorderSide(color: Colors.green),
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //           ),
-        //         ),
-        //       ),
-              SizedBox(
-                height: height * .025,
-              ),
-              Row(
-  children: [
-    Expanded(
-      child: TextFormField(
-        decoration: InputDecoration(
-          labelText: 'Choose State',
-        ),
-      ),
-    ),
-    SizedBox(width: 10), // add some space between the text box and the drop-down menu
-    DropDownMultiSelect(
-                decoration: const InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * .05),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Choose State',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                   ),
                 ),
-                options: states,
-                selectedValues: selectedStates,
-                onChanged: (value) {
-                  print('selected state $value');
-                  setState(() {
-                    selectedStates = value;
-                  });
-                  print('you have selected $selectedStates fruits.');
-                },
-                whenEmpty: 'State',
-              ),
-  ],
-)
-
-              s
-              
-              
-            
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: DropdownButtonFormField(
+                    value: selectedStates,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(8),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    icon: Icon(
+                      Icons.arrow_drop_down_rounded,
+                      color: Colors.green[900],
+                    ),
+                    items: states.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedStates = newValue!;
+                      });
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * .05),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Choose District',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: DropdownButtonFormField(
+                    value: selectedDistricts,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(8),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    icon: Icon(
+                      Icons.arrow_drop_down_rounded,
+                      color: Colors.green[900],
+                    ),
+                    items: districts.map((String items) {
+                      return DropdownMenuItem(
+                        value: items,
+                        child: Text(items),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedDistricts = newValue!;
+                      });
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                state = selectedStates;
+                district = selectedDistricts;
+                isSwitched = true;
+              });
+              print(state);
+              print(district);
+            },
+            child: const Text('Show Labs'),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Padding(
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
+            child: Container(
+              // padding: EdgeInsets.all(16.0),
+              // decoration: BoxDecoration(
+              //   border: Border.all(
+              //     color: Colors.black,
+              //     width: 2.0,
+              //   ),
+              // ),
+              child: DataTable(
+                columns: const <DataColumn>[
+                  DataColumn(
+                    label: Expanded(
+                      child: Text(
+                        'Labs',
+                        style: TextStyle(
+                            fontStyle: FontStyle.normal,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Expanded(
+                      child: Text(
+                        'Location',
+                        style: TextStyle(
+                            fontStyle: FontStyle.normal,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18),
+                      ),
+                    ),
+                  ),
+                ],
+                rows: const <DataRow>[
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Lab 1')),
+                      DataCell(Text('Pingalwara Organic Farm')),
+                    ],
+                  ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Lab 2')),
+                      DataCell(Text('Bhullar Strawberry Farm')),
+                    ],
+                  ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Lab 3')),
+                      DataCell(Text('Jaypee Organic Farm')),
+                    ],
+                  ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Lab 4')),
+                      DataCell(Text('Talwan Farm')),
+                    ],
+                  ),
+                  DataRow(
+                    cells: <DataCell>[
+                      DataCell(Text('Lab 3')),
+                      DataCell(Text('Onkarji Farms')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

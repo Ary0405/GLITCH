@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
+import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
+import 'package:glitch/screens/testing_labs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +26,9 @@ class MyApp extends StatelessWidget {
             .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
       ),
       home: const MyHomePage(),
+      routes: {
+        GraphScreen.routeName: (context) => const GraphScreen(),
+      },
     );
   }
 }
@@ -53,6 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const FormScreen();
+    return const TestingScreen();
   }
 }
