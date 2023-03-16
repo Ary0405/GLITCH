@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
+import 'package:glitch/screens/price_analysis_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const EntryScreen();
+    return const PriceAnalysisScreen();
   }
 }
