@@ -21,13 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
       "text": 'Testing Labs',
       "image": 'assets/images/three test tubes.png',
       "color": 0xffC7D458,
-      "route": "price-analysis-screen",
+      "route": "testing-screen",
     },
     {
       "text": 'Cold Storages',
       "image": 'assets/images/warehouse.png',
       "color": 0xffECA340,
-      "route": "price-analysis-screen",
+      "route": "cold-storage",
     },
     {
       "text": 'Network',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TestingScreen extends StatefulWidget {
   const TestingScreen({super.key});
-
+  static const routeName = 'testing-screen';
   @override
   State<TestingScreen> createState() => _TestingScreenState();
 }
@@ -44,16 +44,10 @@ class _TestingScreenState extends State<TestingScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        // centerTitle: false,
-        title: Text(
+        centerTitle: false,
+        title: const Text(
           "Testing Labs",
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: width * .06,
-              fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color(0xffF2F9F2),
-        elevation: 0,
       ),
       body: Column(
         children: [

@@ -37,6 +37,8 @@ class MyApp extends StatelessWidget {
         RemakeScreen.routename: (context) => const RemakeScreen(),
         RemakeDetailScreen.routeName: (context) => const RemakeDetailScreen(),
         ConnectBusiness.routeName: (context) => const ConnectBusiness(),
+        TestingScreen.routeName: (context) => const TestingScreen(),
+        ColdStorage.routeName: (context) => const ColdStorage(),
       },
     );
   }

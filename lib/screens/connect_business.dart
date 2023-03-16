@@ -18,15 +18,9 @@ class _ConnectBusinessState extends State<ConnectBusiness> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        title: Text(
-          "Connect with business",
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: width * .06,
-              fontWeight: FontWeight.bold),
+        title: const Text(
+          "Network",
         ),
-        backgroundColor: const Color(0xffF2F9F2),
-        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

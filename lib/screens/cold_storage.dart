@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColdStorage extends StatefulWidget {
   const ColdStorage({super.key});
-
+  static const routeName = 'cold-storage';
   @override
   State<ColdStorage> createState() => _ColdStorageState();
 }
@@ -44,16 +44,10 @@ class _ColdStorageState extends State<ColdStorage> {
 
     return Scaffold(
       appBar: AppBar(
-        // centerTitle: false,
-        title: Text(
-          "Testing Labs",
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: width * .06,
-              fontWeight: FontWeight.bold),
+        centerTitle: false,
+        title: const Text(
+          "Cold Storage",
         ),
-        backgroundColor: const Color(0xffF2F9F2),
-        elevation: 0,
       ),
       body: Column(
         children: [
