@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/graphs_screen.dart';
+import 'package:glitch/screens/home_screen.dart';
+import 'package:glitch/screens/form_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Inter',
+        scaffoldBackgroundColor: const Color(0xFFF2F9F2),
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(primary: const Color(0xff22963C))
             .copyWith(background: const Color.fromARGB(100, 242, 249, 242)),
@@ -54,6 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return const PriceAnalysisScreen();
+    return const HomeScreen();
   }
 }
