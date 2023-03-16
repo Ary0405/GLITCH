@@ -2,8 +2,11 @@
 
 ## Tech used: 
 ![flutter](https://user-images.githubusercontent.com/89147145/225720130-8eef0ec5-6581-413a-9e72-e8a48c6b3e1b.png)
+![icons8-figma](https://user-images.githubusercontent.com/89125023/225737460-9fb09357-5635-4687-b438-424608e8582f.svg)
+![icons8-dart](https://user-images.githubusercontent.com/89125023/225737827-8e9eb106-d3c9-41d1-9621-fe41d0f628f4.svg)
 
-
+ 
+ 
 ## Introduction:
 Farmers frequently suffer significant losses as they sell their produce 
 for exorbitantly low prices or dump them as a consequence of surplus crops 
