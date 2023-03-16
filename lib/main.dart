@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:glitch/screens/cold_storage.dart';
 import 'package:glitch/screens/connect_business.dart';
 import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
-<<<<<<< HEAD
 import 'package:glitch/screens/testing_labs.dart';
-=======
 import 'package:glitch/screens/remake_screen.dart';
->>>>>>> ananya
 
 void main() {
   runApp(const MyApp());
@@ -66,10 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-<<<<<<< HEAD
-    return const TestingScreen();
-=======
-    return const ConnectBusiness();
->>>>>>> ananya
+    return const ColdStorage();
   }
 }
