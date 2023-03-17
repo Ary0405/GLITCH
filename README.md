@@ -1,4 +1,4 @@
-# Ag-row
+# Agri-Bud : Your Agri buddy
 
 ## Tech used: 
 ![flutter](https://user-images.githubusercontent.com/89147145/225720130-8eef0ec5-6581-413a-9e72-e8a48c6b3e1b.png)
