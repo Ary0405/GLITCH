@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/cold_storage.dart';
 import 'package:glitch/screens/connect_business.dart';
@@ -10,7 +11,9 @@ import 'package:glitch/screens/remake_detail_screen.dart';
 import 'package:glitch/screens/testing_labs.dart';
 import 'package:glitch/screens/remake_screen.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

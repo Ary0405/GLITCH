@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "531637995289",
+    "project_id": "glitch-26666",
+    "storage_bucket": "glitch-26666.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531637995289:android:8e7dba62ac96e565c96788",
+        "android_client_info": {
+          "package_name": "com.example.glitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531637995289-59a52lo0ht9almlr6gjmueo7hj1s12kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw7y_Ftsw1T2Hv1NoHymzIcOqaiv7H1eU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531637995289-59a52lo0ht9almlr6gjmueo7hj1s12kc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

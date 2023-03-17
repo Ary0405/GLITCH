@@ -54,7 +54,7 @@ class ScreenButtons extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.bottomRight,
-                height: MediaQuery.of(context).size.height * .23,
+                height: MediaQuery.of(context).size.height * .225,
                 child: ClipRRect(
                   child: Image.asset(
                     image,
@@ -62,8 +62,6 @@ class ScreenButtons extends StatelessWidget {
                   ),
                 ),
               ),
-
-              //),
             ],
           ),
         ),

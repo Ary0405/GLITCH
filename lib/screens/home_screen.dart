@@ -61,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           // The header of the screen
           Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.07),
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.width * 0.07,
+              left: MediaQuery.of(context).size.width * 0.07,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
+              height: MediaQuery.of(context).size.height * 0.75,
               child: GridView.builder(
                 itemCount: data.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
