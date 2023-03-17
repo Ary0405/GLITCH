@@ -1,11 +1,17 @@
 # Agri-Bud : Your Agri buddy
+![2(1)](https://user-images.githubusercontent.com/89125023/225837160-ed026c67-c315-4d17-bcf2-c57b7c83b4c9.png)
 
 ## Tech used: 
 ![flutter](https://user-images.githubusercontent.com/89147145/225720130-8eef0ec5-6581-413a-9e72-e8a48c6b3e1b.png)
 ![icons8-figma](https://user-images.githubusercontent.com/89125023/225737460-9fb09357-5635-4687-b438-424608e8582f.svg)
 ![icons8-dart](https://user-images.githubusercontent.com/89125023/225737827-8e9eb106-d3c9-41d1-9621-fe41d0f628f4.svg)
 ![icons8-firebase](https://user-images.githubusercontent.com/89125023/225822143-556b74a5-6e56-462c-8d6c-da5487cbe30b.svg)
-
+1. Flutter
+2. Dart
+3. Firebase
+4. Figma
+5. Canva
+ 
  
  
 ## Introduction:
@@ -77,4 +83,8 @@ From the root directory of the project run
 flutter run
 ```
 **Note: If flutter is not configured in your system, you can find how to do it here**
-https://docs.flutter.dev/get-started/install
+<a href='https://docs.flutter.dev/get-started/install'> Flutter docs</a>
+
+## APK
+You can find the app apk here :
+<a href='https://drive.google.com/file/d/1d9-s1nNMinBzZlBiaz2u6V3GABI33JMH/view?usp=sharing'>Agri-bud</a>
