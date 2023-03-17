@@ -66,7 +66,7 @@ The app provides ideas on how to convert their crop into processed food and sell
 enables farmers to explore alternative avenues for selling their produce and increase their profits.
 
 ## Other information:
-The app provides daily news relevant to farmers in their area, including information about subsidies 
+The app provides daily news, weather relevant to farmers in their area, including information about subsidies 
 and other benefits. Additionally, the app provides educational resources to help farmers improve 
 their knowledge and skills related to farming.
 
@@ -92,4 +92,4 @@ You can find the app apk here :
 <a href='https://drive.google.com/file/d/1d9-s1nNMinBzZlBiaz2u6V3GABI33JMH/view?usp=sharing'>Agri-bud</a>
 
 ## Presentation and Demonstration
-<a href='https://drive.google.com/drive/folders/1fX22lPR4bdyRfJ8LVSLab0WGEUbrkDCh?usp=sharing'>Presentation</a>
+<a href='https://drive.google.com/drive/folders/1fX22lPR4bdyRfJ8LVSLab0WGEUbrkDCh?usp=sharing'>GLITCH - Agribud</a>
