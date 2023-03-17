@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:glitch/widgets/screen_buttons.dart';
 
@@ -65,22 +66,47 @@ class _HomeScreenState extends State<HomeScreen> {
               top: MediaQuery.of(context).size.width * 0.07,
               left: MediaQuery.of(context).size.width * 0.07,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Hi Ananya,',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Hi Ananya,',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      'Welcome back!',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Welcome back!',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.w700,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () => FirebaseAuth.instance.signOut(),
+                    child: Column(
+                      children: const [
+                        Icon(
+                          Icons.logout_rounded,
+                          size: 20,
+                        ),
+                        Text(
+                          'LogOut',
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],

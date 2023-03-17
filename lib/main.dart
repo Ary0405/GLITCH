@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:glitch/screens/cold_storage.dart';
@@ -6,6 +7,7 @@ import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
+import 'package:glitch/screens/login.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
 import 'package:glitch/screens/remake_detail_screen.dart';
 import 'package:glitch/screens/testing_labs.dart';
@@ -17,6 +19,8 @@ Future main() async {
   runApp(const MyApp());
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -24,6 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -42,6 +47,7 @@ class MyApp extends StatelessWidget {
         ConnectBusiness.routeName: (context) => const ConnectBusiness(),
         TestingScreen.routeName: (context) => const TestingScreen(),
         ColdStorage.routeName: (context) => const ColdStorage(),
+        FormScreen.routeName: (context) => const FormScreen(),
       },
     );
   }
@@ -65,13 +71,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return const HomeScreen();
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasData) {
+              return const HomeScreen();
+            } else {
+              return const LoginScreen();
+            }
+          },
+        ),
+      );
 }
