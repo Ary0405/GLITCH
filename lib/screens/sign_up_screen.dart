@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:multiselect/multiselect.dart';
 
 import '../main.dart';
 
@@ -16,6 +18,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _areaController = TextEditingController();
+  final TextEditingController _contactController = TextEditingController();
+  List<String> crops = [
+    'Tomato',
+    'Cabbage',
+    'Potatoes',
+    'Onions',
+    'Ladyfinger',
+    'Carrots'
+  ];
+  List<String> selectedCrops = [];
 
   @override
   void dispose() {
@@ -87,6 +100,72 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: height * .025,
               ),
               TextField(
+                controller: _areaController,
+                decoration: const InputDecoration(
+                    labelText: 'Area',
+                    contentPadding: EdgeInsets.all(8),
+                    filled: true,
+                    fillColor: Colors.white,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide: BorderSide.none,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    )),
+              ),
+              SizedBox(
+                height: height * .025,
+              ),
+              TextField(
+                controller: _contactController,
+                decoration: const InputDecoration(
+                  labelText: 'Contact',
+                  contentPadding: const EdgeInsets.all(8),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * .025,
+              ),
+              DropDownMultiSelect(
+                decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                ),
+                options: crops,
+                selectedValues: selectedCrops,
+                onChanged: (value) {
+                  print('selected fruit $value');
+                  setState(() {
+                    selectedCrops = value;
+                  });
+                  print('you have selected $selectedCrops fruits.');
+                },
+                whenEmpty: 'Select the crops you sell',
+              ),
+              SizedBox(
+                height: height * .025,
+              ),
+              TextField(
                 controller: _passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -110,7 +189,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 width: width * .5,
                 height: height * .05,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     signUp();
                   },
                   style: ElevatedButton.styleFrom(
@@ -169,6 +248,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
       },
     );
     try {
+      final details = <String, dynamic>{
+        "name": _nameController.text,
+        "email": _emailController.text.trim(),
+        "area": _areaController.text,
+        "contact": _contactController.text,
+        "crops": selectedCrops,
+      };
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(_emailController.text.trim())
+          .set(details);
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim());
