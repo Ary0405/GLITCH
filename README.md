@@ -6,6 +6,8 @@
 ![icons8-figma](https://user-images.githubusercontent.com/89125023/225737460-9fb09357-5635-4687-b438-424608e8582f.svg)
 ![icons8-dart](https://user-images.githubusercontent.com/89125023/225737827-8e9eb106-d3c9-41d1-9621-fe41d0f628f4.svg)
 ![icons8-firebase](https://user-images.githubusercontent.com/89125023/225822143-556b74a5-6e56-462c-8d6c-da5487cbe30b.svg)
+![icons8-canva](https://user-images.githubusercontent.com/89125023/225840676-b8171188-f120-46d7-a1a0-fa736b8b8cd9.svg)
+
 1. Flutter
 2. Dart
 3. Firebase
@@ -63,7 +65,7 @@ Another special feature of the app is that it gives farmers other choices to sel
 The app provides ideas on how to convert their crop into processed food and sell them. This feature 
 enables farmers to explore alternative avenues for selling their produce and increase their profits.
 
-## Education:
+## Other information:
 The app provides daily news relevant to farmers in their area, including information about subsidies 
 and other benefits. Additionally, the app provides educational resources to help farmers improve 
 their knowledge and skills related to farming.
@@ -88,3 +90,6 @@ flutter run
 ## APK
 You can find the app apk here :
 <a href='https://drive.google.com/file/d/1d9-s1nNMinBzZlBiaz2u6V3GABI33JMH/view?usp=sharing'>Agri-bud</a>
+
+## Presentation and Demonstration
+<a href='https://drive.google.com/drive/folders/1fX22lPR4bdyRfJ8LVSLab0WGEUbrkDCh?usp=sharing'>Presentation</a>
