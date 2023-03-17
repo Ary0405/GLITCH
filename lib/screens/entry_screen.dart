@@ -24,9 +24,9 @@ class EntryScreen extends StatelessWidget {
                 height: height * .1,
               ),
               Text(
-                "Login as",
+                "Ag-Grow",
                 style: TextStyle(
-                  fontSize: width * .1,
+                  fontSize: width * .07,
                   fontWeight: FontWeight.w700,
                   color: const Color(0xffb064514),
                 ),
@@ -38,7 +38,9 @@ class EntryScreen extends StatelessWidget {
                 width: width * .7,
                 height: height * .08,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('form-screen');
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xffC7D458),
                     shape: RoundedRectangleBorder(
@@ -46,30 +48,7 @@ class EntryScreen extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    "Manufacturer",
-                    style: TextStyle(
-                        fontSize: width * .06,
-                        // fontWeight: FontWeight.w700,
-                        color: const Color(0xffb064514)),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * .01,
-              ),
-              SizedBox(
-                width: width * .7,
-                height: height * .08,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffC7D458),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                  ),
-                  child: Text(
-                    "Farmer",
+                    "Get Started",
                     style: TextStyle(
                         fontSize: width * .06,
                         // fontWeight: FontWeight.w700,

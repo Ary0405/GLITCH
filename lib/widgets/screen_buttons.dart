@@ -11,12 +11,14 @@ class ScreenButtons extends StatelessWidget {
   final String text;
   final String image;
   final dynamic color;
-  final String routeName;
+  final String? routeName;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(routeName);
+        if (routeName != null) {
+          Navigator.of(context).pushNamed(routeName!);
+        }
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.15,
@@ -54,7 +56,7 @@ class ScreenButtons extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.bottomRight,
-                height: MediaQuery.of(context).size.height * .23,
+                height: MediaQuery.of(context).size.height * .225,
                 child: ClipRRect(
                   child: Image.asset(
                     image,
@@ -62,8 +64,6 @@ class ScreenButtons extends StatelessWidget {
                   ),
                 ),
               ),
-
-              //),
             ],
           ),
         ),

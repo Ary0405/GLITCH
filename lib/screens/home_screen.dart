@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:glitch/widgets/screen_buttons.dart';
 
@@ -9,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final user = FirebaseAuth.instance.currentUser!;
   // List for storing the data for the buttons
   List<Map<String, dynamic>> data = [
     {
@@ -46,71 +49,113 @@ class _HomeScreenState extends State<HomeScreen> {
       "text": 'Info',
       "image": 'assets/images/info.png',
       "color": 0xff7582F4,
-      "route": "price-analysis-screen",
+      "route": "info-screen",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          // The header of the screen
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.07),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Hi Ananya,',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
+        body: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('users')
+                .doc(user.email)
+                .snapshots(),
+            builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              final dataSnapshot = snapshot.data!.data() as Map<String, dynamic>;
+              
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                ),
-                Text(
-                  'Welcome back!',
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.w700,
+                  // The header of the screen
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.width * 0.07,
+                      left: MediaQuery.of(context).size.width * 0.07,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:  [
+                            Text(
+                              'Hi ${dataSnapshot['name']},',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const Text(
+                              'Welcome back!',
+                              style: TextStyle(
+                                fontSize: 36,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
+                            onTap: () => FirebaseAuth.instance.signOut(),
+                            child: Column(
+                              children: const [
+                                Icon(
+                                  Icons.logout_rounded,
+                                  size: 20,
+                                ),
+                                Text(
+                                  'LogOut',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
 
-          // The buttons which will redirect to the respective screens
-          Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: GridView.builder(
-                itemCount: data.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: MediaQuery.of(context).size.width /
-                      (MediaQuery.of(context).size.height / 1.3),
-                  crossAxisSpacing: 30,
-                  mainAxisSpacing: 30,
-                ),
-                itemBuilder: (context, i) {
-                  return ScreenButtons(
-                    text: data[i]['text']!,
-                    image: data[i]['image']!,
-                    color: data[i]['color'],
-                    routeName: data[i]['route']!,
-                  );
-                },
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+                  // The buttons which will redirect to the respective screens
+                  Padding(
+                    padding: EdgeInsets.all(
+                        MediaQuery.of(context).size.width * 0.05),
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.75,
+                      child: GridView.builder(
+                        itemCount: data.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: MediaQuery.of(context).size.width /
+                              (MediaQuery.of(context).size.height / 1.3),
+                          crossAxisSpacing: 30,
+                          mainAxisSpacing: 30,
+                        ),
+                        itemBuilder: (context, i) {
+                          return ScreenButtons(
+                            text: data[i]['text']!,
+                            image: data[i]['image']!,
+                            color: data[i]['color'],
+                            routeName: data[i]['route']!,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }));
   }
 }

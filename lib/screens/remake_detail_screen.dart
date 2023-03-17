@@ -38,7 +38,7 @@ class _RemakeDetailScreenState extends State<RemakeDetailScreen> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 3.2),
+                (MediaQuery.of(context).size.height / 3.5),
             crossAxisSpacing: 30,
             mainAxisSpacing: 30,
           ),
@@ -51,7 +51,7 @@ class _RemakeDetailScreenState extends State<RemakeDetailScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -69,7 +69,7 @@ class _RemakeDetailScreenState extends State<RemakeDetailScreen> {
                       child: Text(
                         data[index]['description'],
                         style: const TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
