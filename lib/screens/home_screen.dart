@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "text": 'Info',
       "image": 'assets/images/info.png',
       "color": 0xff7582F4,
-      "route": "price-analysis-screen",
+      "route": "info-screen",
     },
   ];
 
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               }
               final dataSnapshot = snapshot.data!.data() as Map<String, dynamic>;
-              print(dataSnapshot['name']);
+              
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

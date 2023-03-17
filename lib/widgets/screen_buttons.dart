@@ -11,12 +11,14 @@ class ScreenButtons extends StatelessWidget {
   final String text;
   final String image;
   final dynamic color;
-  final String routeName;
+  final String? routeName;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed(routeName);
+        if (routeName != null) {
+          Navigator.of(context).pushNamed(routeName!);
+        }
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.15,

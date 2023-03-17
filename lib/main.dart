@@ -8,6 +8,7 @@ import 'package:glitch/screens/entry_screen.dart';
 import 'package:glitch/screens/graphs_screen.dart';
 import 'package:glitch/screens/home_screen.dart';
 import 'package:glitch/screens/form_screen.dart';
+import 'package:glitch/screens/info-screen.dart';
 import 'package:glitch/screens/login.dart';
 import 'package:glitch/screens/price_analysis_screen.dart';
 import 'package:glitch/screens/remake_detail_screen.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         TestingScreen.routeName: (context) => const TestingScreen(),
         ColdStorage.routeName: (context) => const ColdStorage(),
         FormScreen.routeName: (context) => const FormScreen(),
+        InfoScreen.routeName: (context) => const InfoScreen(),
       },
     );
   }
