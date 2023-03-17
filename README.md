@@ -4,6 +4,7 @@
 ![flutter](https://user-images.githubusercontent.com/89147145/225720130-8eef0ec5-6581-413a-9e72-e8a48c6b3e1b.png)
 ![icons8-figma](https://user-images.githubusercontent.com/89125023/225737460-9fb09357-5635-4687-b438-424608e8582f.svg)
 ![icons8-dart](https://user-images.githubusercontent.com/89125023/225737827-8e9eb106-d3c9-41d1-9621-fe41d0f628f4.svg)
+![icons8-firebase](https://user-images.githubusercontent.com/89125023/225822143-556b74a5-6e56-462c-8d6c-da5487cbe30b.svg)
 
  
  
@@ -32,7 +33,7 @@ Thereby focusing in the economic welfare and developement of the farmer.
 
 Cold storage is an essential component of modern agricultural practices, 
 that help to extend the shelf life of the produce and maintain its quality.
-Cold storages help farmers extend the lifetime of producr thus reducing their losses, 
+Cold storages help farmers extend the lifetime of produce thus reducing their losses, 
 access markets that are far away from their farms.
 
 Through our app, farmers can quickly find nearby cold storage facilities and get in touch with their managers to learn more and make use 
