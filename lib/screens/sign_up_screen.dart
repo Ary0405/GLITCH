@@ -1,25 +1,25 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   final VoidCallback onClickedSignUp;
-  const LoginScreen({super.key, required this.onClickedSignUp});
-  static const routeName = 'login-screen';
+  const SignUpScreen({super.key, required this.onClickedSignUp});
+  static const routeName = 'sign-up-screen';
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _nameController = TextEditingController();
+class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         centerTitle: false,
         title: Text(
-          "Login",
+          "Sign Up",
           style: TextStyle(
               color: Colors.black,
               fontSize: width * .06,
@@ -48,6 +48,26 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               TextField(
                 controller: _nameController,
+                decoration: const InputDecoration(
+                  labelText: 'Name',
+                  contentPadding: EdgeInsets.all(8),
+                  filled: true,
+                  fillColor: Colors.white,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.green),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * .025,
+              ),
+              TextField(
+                controller: _emailController,
                 decoration: const InputDecoration(
                   labelText: 'Email',
                   contentPadding: EdgeInsets.all(8),
@@ -91,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: height * .05,
                 child: ElevatedButton(
                   onPressed: () {
-                    login();
+                    signUp();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xffC7D458),
@@ -100,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   child: Text(
-                    "Login",
+                    "Sign Up",
                     style: TextStyle(
                         fontSize: width * .05,
                         fontWeight: FontWeight.w600,
@@ -123,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = widget.onClickedSignUp,
-                      text: 'Sign Up',
+                      text: 'Log In',
                       style: const TextStyle(
                         color: Color(0xff22963C),
                       ),
@@ -138,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future login() async {
+  Future signUp() async {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -149,18 +169,12 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _nameController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim());
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      }
+      print(e);
     }
-
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }

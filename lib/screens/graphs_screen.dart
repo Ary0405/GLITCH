@@ -276,7 +276,7 @@ class _GraphScreenState extends State<GraphScreen> {
       child: Scaffold(
         backgroundColor: const Color(0xffF2F9F2),
         appBar: AppBar(
-          title: const Text('Things you are selling'),
+          title: const Text('Price Analysis'),
           bottom: const TabBar(
             tabs: [
               Padding(
