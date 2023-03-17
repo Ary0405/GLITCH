@@ -67,7 +67,7 @@ class _RemakeScreenState extends State<RemakeScreen> {
                         image = 'assets/images/potato.png';
                       } else if (dataSnapshot['crops'][index] == 'Onions') {
                         image = 'assets/images/onion.png';
-                      } else if (dataSnapshot['crops'][index] == 'LadyFinger') {
+                      } else if (dataSnapshot['crops'][index] == 'Ladyfinger') {
                         image = 'assets/images/ladyfinger.png';
                       } else if (dataSnapshot['crops'][index] == 'Carrots') {
                         image = 'assets/images/carrot.png';
